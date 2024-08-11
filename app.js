@@ -20,7 +20,7 @@ const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
 for (let select of dropdowns) {
-  for (currCode in countryList) {
+  for (let currCode in countryList) {
     let newOption = document.createElement("option");
     newOption.innerText = currCode;
     newOption.value = currCode;
@@ -80,6 +80,15 @@ const updateExchangeRate = async () => {
   let rate = data[fromCurrency][toCurrency];
 
   let finalAmount = amtVal * rate;
-  msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
+  let newAmount = finalAmount.toFixed(2);
+  msg.innerText = `${amtVal} ${fromCurr.value} = ${newAmount} ${toCurr.value}`;
+  // msg.innerText = "Hello";
 };
 
+btn.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  updateExchangeRate();
+});
+window.addEventListener("load", () => {
+  updateExchangeRate();
+});

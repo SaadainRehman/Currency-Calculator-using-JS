@@ -40,6 +40,7 @@ form input{
     text-align: center;
     height: 2rem;
     margin: 0.5rem;
+    color:darkgrey;
 }
 
 .dropdown{
@@ -57,13 +58,16 @@ form input{
     justify-content: center;
     align-items: center;
     width: 7rem;
-    border-radius: 0.6rem;
+    border-radius: 0.7rem;
     border: 1px solid #ffb703;
+    padding: 5px;
 }
 
 .select-container select{
     font-size: 1rem;
     width: auto;
+    margin-left: 5px;
+    
 }
 .msg{
     margin: 2rem;
@@ -77,4 +81,25 @@ form button{
     cursor: pointer;
     box-shadow: 0px 4px 8px 0px #023047 ;
 
+}
+#plc1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+#plc {
+    font-family: sans-serif ; 
+    color: whitesmoke ;
+    text-align: center;
+    padding: 8px;
+}
+
+.msg{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+    text-decoration: underline;
 }

@@ -11,7 +11,7 @@
 // }
 
 const BASE_URL =
-  "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@{date}/v1/{endpoint}";
+  "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@{latest}/v1/{currencies}";
 
 const dropdowns = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button");
@@ -68,14 +68,18 @@ const updateExchangeRate = async () => {
     amtVal = 1;
     amount.value = "1";
   }
+  
+  const fromCurrency = fromCurr.value.toLowerCase();
+  const toCurrency = toCurr.value.toLowerCase();
+  const URL = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromCurrency}.json`;
 
-  const URL = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies`;
+
+
   let response = await fetch(URL);
   let data = await response.json();
-  let rate = data[toCurr.value.toLowerCase()];
+  let rate = data[fromCurrency][toCurrency];
 
   let finalAmount = amtVal * rate;
   msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
 };
-
 
